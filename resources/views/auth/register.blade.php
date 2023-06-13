@@ -32,7 +32,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-                <form action="{{route('register')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('register')}}" method="POST" enctype="multipart/form-data" id="myForm">
                     @csrf
                     <!-- Email input -->
                     <div class="form-outline mb-4">
@@ -69,7 +69,7 @@
                     </div>
 
                     <div class="form-outline mb-4">
-                        <input type="file" name="image" id="form1Example13" class="form-control form-control-lg"/>
+                        <input type="file" name="image" id="myFile" class="form-control form-control-lg"/>
                         <label class="form-label" for="form1Example13">Profile image</label>
                     </div>
 
@@ -84,6 +84,20 @@
           </div>
         </div>
     </section>
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+          var fileInput = document.getElementById('myFile');
+          if (fileInput.files.length > 0) {
+            var fileSize = fileInput.files[0].size; // in bytes
+            var maxSize = 2097152; // maximum file size in bytes (2MB in this case)
+
+            if (fileSize > maxSize) {
+              event.preventDefault(); // Prevent form submission
+              alert('File size exceeds the maximum allowed size of 2MB.');
+            }
+          }
+        });
+    </script>
 
 </body>
 </html>

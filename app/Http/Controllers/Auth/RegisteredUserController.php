@@ -37,7 +37,7 @@ class RegisteredUserController extends Controller
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
             'phone' => ['required', 'digits:10', 'starts_with:07'],
             'address' => ['required', 'string'],
-            'image' => ['required', 'file', 'mimes:jpg,png']
+            'image' => ['required', 'file', 'mimes:jpg,png', 'max:2048']
         ]);
 
         $user = User::create([
