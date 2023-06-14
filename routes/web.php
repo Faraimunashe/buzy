@@ -86,4 +86,8 @@ Route::group(['middleware' => ['auth', 'role:user']], function(){
     Route::post('/user/add-flow', 'App\Http\Controllers\user\FlowsController@add')->name('user-add-flow');
 });
 
+Route::get('/consultance/{id}', 'App\Http\Controllers\ConsultantController@consultant')->name('user-consultant');
+Route::get('/investor/{id}', 'App\Http\Controllers\ConsultantController@investor')->name('user-investor');
+Route::get('/objective/{id}', 'App\Http\Controllers\ConsultantController@objective')->name('user-objective');
+
 require __DIR__.'/auth.php';

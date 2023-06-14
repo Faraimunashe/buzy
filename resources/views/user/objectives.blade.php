@@ -30,7 +30,7 @@
                 </button>
             </div>
             @foreach ($objectives as $objective)
-                <div class="row mt-3">
+                <a href="{{route('user-objective', $objective->id)}}" class="row mt-3">
                     <div class="col-12">
                         <div class="card bg-secondary">
                             <div class="">
@@ -47,7 +47,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
                 <div class="modal fade" id="deleteModal{{$objective->id}}" tabindex="-1">
                     <div class="modal-dialog">
                       <div class="modal-content">

@@ -25,7 +25,7 @@
         </div>
         <div class="col-12 list-group list-group-light">
             @foreach ($consultants as $consultant)
-                <div class="list-group-item d-flex justify-content-between align-items-start">
+                <a href="{{route('user-consultant', $consultant->id)}}" class="list-group-item d-flex justify-content-between align-items-start">
                     <img src="{{asset('images/known_faces/')}}/{{$consultant->image}}" height="30" alt="Consultant Image" class="rounded m-1">
                     <div class="ms-2 me-auto">
                         <div class="fw-bold">{{$consultant->fullname}}</div>
@@ -33,20 +33,7 @@
                             {{$consultant->speciality}}
                         </div>
                     </div>
-                    {{-- <div class="filter">
-                        <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-dash-square"></i></a>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                            <li class="dropdown-header text-start">
-                                <h6>Options</h6>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteModal{{$consultant->id}}">
-                                    <i class="bi bi-eye"></i>See more
-                                </a>
-                            </li>
-                        </ul>
-                    </div> --}}
-                </div>
+                </a>
             @endforeach
         </div>
     </section>

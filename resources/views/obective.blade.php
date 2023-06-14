@@ -24,17 +24,26 @@
             </div>
         </div>
         <div class="col-12 list-group list-group-light">
-            @foreach ($investors as $investor)
-                <a href="{{route('user-investor', $investor->id)}}" class="list-group-item d-flex justify-content-between align-items-start">
-                    <img src="{{asset('images/known_faces/')}}/{{$investor->image}}" height="30" alt="investor Image" class="rounded m-1">
-                    <div class="ms-2 me-auto">
-                        <div class="fw-bold">{{$investor->fullname}}</div>
-                        <div style="font-size: 11px">
-                            {{$investor->interest}}
+
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <div class="card bg-secondary">
+                            <div class="">
+                                <span class="badge bg-primary">{{$objective->deadline}}</span>
+                                <button class="btn btn-danger btn-sm m-1" style="float: right;" data-bs-toggle="modal" data-bs-target="#deleteModal{{$objective->id}}">
+                                    <i class="bi bi-trash"></i>
+                                </button>
+                                <button class="btn btn-dark btn-sm m-1" style="float: right;" data-bs-toggle="modal" data-bs-target="#commentModal{{$objective->id}}">
+                                    <i class="bi bi-chat"></i>
+                                </button>
+                            </div>
+                            <div class="card-body text-center">
+                                <p class="pt-3 text-3xl text-white">{{$objective->objective}}</p>
+                            </div>
                         </div>
                     </div>
-                </a>
-            @endforeach
+                </div>
+
         </div>
     </section>
 </x-app-layout>
